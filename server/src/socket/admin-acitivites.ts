@@ -107,7 +107,7 @@ const adminActivitiesSocketRoutines = async (io: any, socket: any) => {
         const filePath = path.join(tmpFolderPath, fileName);
 
         // Convert voiceBlob (assumed to be a base64 string or Buffer) to ArrayBuffer
-        let arrayBuffer: ArrayBuffer;
+        let arrayBuffer: ArrayBuffer | SharedArrayBuffer;
         if (typeof voiceBlob === "string") {
           // If it's a base64 string
           const buffer = Buffer.from(voiceBlob, "base64");
