@@ -26,7 +26,7 @@
         </q-toolbar>
         <UpdateRibbon ref="updateRibbon" />
       </q-header>
-      <q-drawer v-model="leftDrawerOpen" side="left" bordered>
+      <q-drawer v-model="leftDrawerOpen" side="left" overlay bordered>
         <!-- drawer content -->
         <q-list>
           <q-item clickable @click="leftDrawerOpen = false">

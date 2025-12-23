@@ -32,6 +32,7 @@ import { addToResponseQueue, getChatReplyFromAI } from "../ai/main.js";
 import {
   emitAiIsThinking,
   emitAiStopTalking,
+  emitAiToRepeatLastResponse,
   emitFullEventData,
   sendChatHistory,
 } from "../socket-rooms/main-room.js";
@@ -151,6 +152,9 @@ const adminActivitiesSocketRoutines = async (io: any, socket: any) => {
       emitAiStopTalking(speakerIdx);
     }
   );
+  socket.on("admin-activities-repeat-last-ai-speaking-task", () => {
+    emitAiToRepeatLastResponse();
+  });
   socket.on("admin-activities-request-structured-transcript", () => {
     const payload: GSK_AI_HISTORY_TO_CLIENT = {
       type: "GSK_AI_HISTORY_TO_CLIENT",

@@ -146,11 +146,16 @@ export const getSystemPrompt = (idx: number) => {
   return `
   You are ${participant.name}, a ${participant.role} in the event "${event.event.name}".
   It is your turn to speak.
-  You are a ${participant.bio} and you are expected to respond in the language "${event.event.language}".
+  Your bio is
+  \`\`\`
+  ${participant.bio}
+  \`\`\`
+  You are expected to respond in the language "${event.event.language}".
   You are expected to respond in the same tone and style as the previous speakers.
   You are expected to respond in the same context as the previous speakers.
   You are expected to respond in the same context as the event dynamics.
   Your response should be just the content of the message, without any additional information.
+  Your response should be without markdown formatting because it will be read aloud using simple TTS.
   `;
 };
 

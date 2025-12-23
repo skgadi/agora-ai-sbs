@@ -40,6 +40,10 @@ export const events = (label: string, ...args: unknown[]) => {
       speechStore.forceStopSpeaking();
       return;
     }
+    case 'main-room-ai-repeat-last-speaking-task': {
+      speechStore.repeatLastSpeakingTask();
+      return;
+    }
     case 'main-room-chat-history': {
       const chatHistory = args[0] as GSK_SEND_FULL_CHAT_HISTORY_TO_CLIENT;
       chatsStore.updateMessageHistory(chatHistory.payload.chatHistory);

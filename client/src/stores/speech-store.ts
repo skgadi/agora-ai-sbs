@@ -1,4 +1,5 @@
 import { defineStore, acceptHMRUpdate } from 'pinia';
+import type { GSK_AI_TEXT_TO_SPEAK_ELEMENT } from 'src/services/library/types/data-transfer-protocls';
 
 import { useMainRoomStore } from 'src/stores/main-room-store';
 
@@ -11,6 +12,10 @@ export const useSpeechStore = defineStore('speechStore', {
     speakerIdx: -1 as number,
     isSpeakingWindow: false as boolean,
     keepSpeechAliveTimeInterval: null as NodeJS.Timeout | null,
+    lastSpeakingTask: {
+      speakerIdx: -1,
+      text: '',
+    } as GSK_AI_TEXT_TO_SPEAK_ELEMENT,
   }),
 
   getters: {
@@ -40,9 +45,19 @@ export const useSpeechStore = defineStore('speechStore', {
         this.loadVoices();
       }
     },
+    repeatLastSpeakingTask() {
+      if (this.lastSpeakingTask.text !== '') {
+        const mainRoomStore = useMainRoomStore();
+        mainRoomStore.addTextToSpeak(this.lastSpeakingTask);
+      }
+    },
     speak(inTxt: string, inSpeakerIdx: number, inSpeakerVoiceName: string) {
+      this.lastSpeakingTask = {
+        text: inTxt,
+        speakerIdx: inSpeakerIdx,
+      };
       if (!this.isSpeakingWindow) {
-        console.warn('Speech synthesis is enabled in this window.');
+        console.warn('Speech synthesis is disabled by user.');
         return;
       }
       if (this.voices.length === 0) {

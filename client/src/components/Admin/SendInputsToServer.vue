@@ -36,6 +36,16 @@
       </div>
     </template>
   </div>
+  <div class="q-mt-md row items-center justify-center" style="gap: 16px">
+    <q-btn
+      round
+      :icon="speechStore.isSpeakingWindow ? 'volume_up' : 'volume_off'"
+      :color="speechStore.isSpeakingWindow ? 'positive' : 'grey-7'"
+      @click="speechStore.isSpeakingWindow = !speechStore.isSpeakingWindow"
+    />
+    <q-btn round icon="replay" color="primary" @click="requestRepeatLastSpeakingTask" />
+    <q-btn round icon="stop" color="negative" @click="forceStopRecordingAndStopAITalking" />
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -66,10 +76,12 @@ import type {
   GSK_VOICE_INPUT_TO_SERVER,
 } from 'src/services/library/types/data-transfer-protocls';
 import { useSocketStore } from 'src/stores/socket-store';
+import { useSpeechStore } from 'src/stores/speech-store';
 import defaultAvatar from 'assets/defualt-avatar.png'; // Correct path using @ alias
 
 const $q = useQuasar();
 const socketStore = useSocketStore();
+const speechStore = useSpeechStore();
 
 const isRecording = ref(false);
 const recordingIdx = ref(-1);
@@ -335,5 +347,19 @@ const getParticipant = (idx: number) => {
       role: '',
     } as GSK_PARTICIPANT)
   );
+};
+
+const requestRepeatLastSpeakingTask = () => {
+  socketStore.emit('admin-activities-repeat-last-ai-speaking-task', {});
+};
+
+const forceStopRecordingAndStopAITalking = () => {
+  stopRecording();
+  socketStore.emit('admin-activities-stop-ai-voice', {
+    type: 'GSK_REQUEST_AI_TO_STOP_TALKING',
+    payload: {
+      speakerIdx: -1,
+    },
+  } as GSK_REQUEST_AI_TO_STOP_TALKING);
 };
 </script>

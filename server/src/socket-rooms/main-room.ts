@@ -76,6 +76,10 @@ export const emitAiStopTalking = (speakerIdx: number) => {
   io.to("main-room").emit("main-room-ai-stop-talking", payLoad);
 };
 
+export const emitAiToRepeatLastResponse = () => {
+  io.to("main-room").emit("main-room-ai-repeat-last-speaking-task", {});
+};
+
 export const sendErrorToMainRoom = (
   errorTitle: string,
   errorMessage: string
