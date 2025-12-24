@@ -24,7 +24,7 @@ import ShowAllBots from 'src/components/Public/ShowAllBots.vue';
 
 import { useMainRoomStore } from 'src/stores/main-room-store';
 import { computed } from 'vue';
-import defaultBackgroundImage from 'assets/default-background.jpg'; // Correct path using @ alias
+import defaultBackgroundImage from 'assets/default-background.png'; // Correct path using @ alias
 
 const mainRoomStore = useMainRoomStore();
 

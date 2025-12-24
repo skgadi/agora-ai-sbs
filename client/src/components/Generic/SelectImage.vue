@@ -58,7 +58,7 @@ import { computed, ref, type PropType } from 'vue';
 import defaultAvatar from 'assets/defualt-avatar.png'; // Correct path using @ alias
 import defaultTalkingAvatar from 'assets/default-avatar-talking.gif';
 import defaultThinkingAvatar from 'assets/default-avatar-thinking.gif';
-import backgroundImage from 'assets/default-background.jpg'; // Correct path using @ alias
+import backgroundImage from 'assets/default-background.png'; // Correct path using @ alias
 
 // Function to handle file selection and convert image to base64
 const handleFileSelect = (event: Event) => {

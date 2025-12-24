@@ -1,5 +1,5 @@
 import type { GSK_AI_MODEL, GSK_CHAT_MESSAGE, GSK_HISTORY_ELEMENT } from './ai-data-model.js';
-import type { GSK_FULL_EVENT_DATA } from './participants.js';
+import type { GSK_DATA_FOR_EVENT_GENERATION, GSK_FULL_EVENT_DATA } from './participants.js';
 
 export interface GSK_SETTINGS_TO_INIT_AI {
   type: 'GSK_SETTINGS_TO_INIT_AI';
@@ -125,5 +125,12 @@ export interface GSK_SEND_SELECTED_MODEL {
   type: 'GSK_SEND_SELECTED_MODEL';
   payload: {
     model: GSK_AI_MODEL;
+  };
+}
+
+export interface GSK_REQUEST_EVENT_GENERATION {
+  type: 'GSK_REQUEST_EVENT_GENERATION';
+  payload: {
+    eventData: GSK_DATA_FOR_EVENT_GENERATION;
   };
 }

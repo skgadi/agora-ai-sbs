@@ -27,3 +27,12 @@ export interface GSK_FULL_EVENT_DATA {
   participants: GSK_PARTICIPANT[];
   roles: GSK_ROLE[];
 }
+
+export interface GSK_DATA_FOR_EVENT_GENERATION {
+  topicsToDiscuss: {
+    topic: string;
+    subTopic: string;
+    subSubTopic: string;
+  }[];
+  activity: 'learn' | 'brainstorm' | 'panel-discussion' | 'debate';
+}

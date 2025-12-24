@@ -71,6 +71,15 @@
             <q-list bordered separator class="rounded-borders">
               <q-expansion-item
                 expand-separator
+                icon="mdi-creation-outline"
+                label="Event generator"
+              >
+                <div class="q-pa-md">
+                  <event-generator v-model="fullEventData.event" :editable="isEditing" />
+                </div>
+              </q-expansion-item>
+              <q-expansion-item
+                expand-separator
                 icon="mdi-calendar-outline"
                 label="Event editor"
                 :caption="`Name: ${fullEventData.event.name}`"
@@ -169,6 +178,7 @@ import SelectAiModel from 'src/components/Admin/SelectAiModel.vue';
 import PasswordCheck from 'src/components/Admin/PasswordCheck.vue';
 import ParticipantsEditor from 'src/components/Admin/ParticipantsEditor.vue';
 import EventEditor from 'src/components/Admin/EventEditor.vue';
+import EventGenerator from 'src/components/Admin/EventGenerator.vue';
 import RolesEditor from 'src/components/Admin/RolesEditor.vue';
 import SendInputsToServer from 'src/components/Admin/SendInputsToServer.vue';
 
