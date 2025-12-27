@@ -15,10 +15,12 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 import {
+  GSK_AI_FULL_EVENT_DATA_TO_CLIENT,
   GSK_AI_HISTORY_TO_CLIENT,
   GSK_HUMAN_READABLE_REPORT,
   GSK_REQUEST_AI_TO_START_TALKING,
   GSK_REQUEST_AI_TO_STOP_TALKING,
+  GSK_REQUEST_EVENT_GENERATION,
   GSK_SEND_API_TO_SERVER,
   GSK_SEND_SELECTED_MODEL,
   GSK_SEND_STRUCTURED_TRANSCRIPT,
@@ -39,6 +41,7 @@ import {
 import { setMyGeminiAPIKey, setSelectedModel } from "../ai/initialization.js";
 import { notifyError, notifyInfo } from "../services/notifications/index.js";
 import { resetChatHistory } from "../ai/chat.js";
+import { generateEventDetails } from "../ai/generate-event.js";
 
 const adminActivitiesSocketRoutines = async (io: any, socket: any) => {
   socket.on(
@@ -247,6 +250,27 @@ const adminActivitiesSocketRoutines = async (io: any, socket: any) => {
           socket,
           "Failed to set AI model. Please check the server logs for more details.",
           "AI Model Error"
+        );
+      }
+    }
+  );
+
+  socket.on(
+    "GSK_REQUEST_EVENT_GENERATION",
+    async (data: GSK_REQUEST_EVENT_GENERATION) => {
+      try {
+        const newEventData = await generateEventDetails(data.payload.eventData);
+        const payLoad: GSK_AI_FULL_EVENT_DATA_TO_CLIENT = {
+          fullEventData: newEventData,
+          type: "GSK_AI_FULL_EVENT_DATA_TO_CLIENT",
+        };
+        socket.emit("main-room-full-event-data", payLoad);
+      } catch (error) {
+        console.error("Error in GSK_DATA_FOR_EVENT_GENERATION:", error);
+        notifyError(
+          socket,
+          "Failed to generate event. Please check the server logs for more details.",
+          "Event Generation Error"
         );
       }
     }

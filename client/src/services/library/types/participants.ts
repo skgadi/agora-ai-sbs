@@ -35,4 +35,7 @@ export interface GSK_DATA_FOR_EVENT_GENERATION {
     subSubTopic: string;
   }[];
   activity: 'learn' | 'brainstorm' | 'panel-discussion' | 'debate';
+  noOfHumanParticipants: number;
+  noOfAIParticipants: number;
+  language: string;
 }

@@ -7,11 +7,11 @@ import { GSK_FULL_EVENT_DATA } from "../services/library/types/participants.js";
 const event: GSK_FULL_EVENT_DATA = {
   event: {
     background: "",
-    name: "Chrononauts and Causality: A Debate on the Possibility of Time Travel",
+    name: "Synergy in Sustainability: Implementing Smart Logic in Bio-Energy Systems",
     description:
-      "This event will be a mind-bending debate on the scientific and philosophical feasibility of time travel. The panel will discuss topics such as the Grandfather Paradox, the physics of wormholes and black holes, and why we haven't been visited by tourists from the future.",
+      'This professional development session focuses on the practical application of "Smart" Bioelectrochemical Systems (BES). The goal is to explore how biological wastewater treatment processes can be enhanced using digital monitoring and automation.\nRather than focusing on the complex molecular reactions, this session prioritizes the system architecture. The student will learn how to couple a biological reactor (where microbes consume waste to generate power) with a digital control unit. The core learning objective is understanding how to translate biological signals—such as the health and activity of the bacteria—into digital data that can be monitored and optimized by a computer in real-time.',
     dynamics:
-      "A structured debate with three rounds. Round 1: Each panelist presents their argument for or against time travel. Round 2: The panelists engage in a moderated discussion and address each other's points. Round 3: The audience asks questions, and the panelists provide closing remarks.",
+      'The session is designed as a hands-on systems integration workshop.\nPhase 1: Conceptual Framework (20 mins): A high-level overview of how specific bacteria function as "living batteries." The discussion focuses on the flow of energy from organic waste to the electrode surfaces without diving into stoichiometry.\nPhase 2: Sensor Integration (40 mins): The participants will install environmental sensors into the reactor. They will focus on monitoring critical health indicators—such as temperature and acidity levels—that determine if the microbes are happy and productive.\nPhase 3: The "Smart" Interface (40 mins): The student will connect the reactor to a dashboard on a tablet or computer. They will configure the software to trigger automatic alerts if the system efficiency drops, simulating a "self-healing" smart grid.\nPhase 4: Strategic Application (20 mins): A concluding discussion on how these systems can be scaled up for use in smart cities or industrial water treatment plants.',
     language: "en-US",
   },
   participants: [
@@ -22,8 +22,8 @@ const event: GSK_FULL_EVENT_DATA = {
       avatarThinking: "",
       avatarTalking: "",
       name: "Dr. Aris Thorne",
-      bio: "Dr. Thorne is a leading theoretical physicist with a Ph.D. from Caltech. His work focuses on general relativity and quantum mechanics, with several published papers on wormhole stability and spacetime geometry in peer-reviewed journals. He was awarded the prestigious Einstein Medal for his contributions to theoretical physics.",
-      role: "The Physicist",
+      bio: "Dr. Thorne is a leading consultant in Green Technology Integration. With over 15 years of experience in sustainable design, he specializes in making complex bio-energy systems accessible for municipal utility operators. He has advised cities on integrating renewable energy into existing infrastructure and is known for his ability to explain dense engineering concepts through clear, functional analogies.",
+      role: "Systems Architect & Mentor",
     },
     {
       type: "human",
@@ -31,36 +31,21 @@ const event: GSK_FULL_EVENT_DATA = {
       avatarListening: "",
       avatarThinking: "",
       avatarTalking: "",
-      name: "Dr. Lena Petrova",
-      bio: "Dr. Petrova is a highly respected philosopher with a Ph.D. in Metaphysics from Oxford University. Her research centers on causality, identity, and the logic of time. She is the author of the book 'The Logic of Loops: Paradoxes in Time and Existence' and is a sought-after speaker at international philosophy conferences.",
-      role: "The Philosopher",
-    },
-    {
-      type: "human",
-      avatarIdle: "",
-      avatarListening: "",
-      avatarThinking: "",
-      avatarTalking: "",
-      name: "Alex Vance",
-      bio: "Alex Vance is an acclaimed science fiction author known for a series of novels exploring time-travel paradoxes. A graduate of NYU's film school, Vance has also worked as a screenwriter for several major studio films. Their work has been nominated for a Hugo Award, and they frequently appear as a consultant on projects involving complex sci-fi concepts.",
-      role: "The Storyteller",
+      name: "Julian Varela",
+      bio: 'Julian is an aspiring Environmental Systems Technologist currently completing a graduate certificate in Urban Informatics. While he is skilled in software data visualization and hardware assembly, he is new to the "bio" side of energy. Julian is attending this session to master the hands-on skills required to monitor and maintain automated biological reactors in smart-city environments.',
+      role: "Junior Environmental Technologist",
     },
   ],
   roles: [
     {
-      name: "The Physicist",
+      name: "Systems Architect & Mentor",
       description:
-        "A scientist who explains the theoretical possibilities of time travel based on our current understanding of physics.",
+        "The expert facilitator who bridges the gap between biological science and engineering. Their responsibility is to ensure the student understands the logic of the system—how the biological component interacts with the digital component—rather than the granular chemical calculations. They guide the strategic design choices.",
     },
     {
-      name: "The Philosopher",
+      name: "Junior Environmental Technologist",
       description:
-        "A thinker who focuses on the logical and metaphysical problems associated with time travel, such as paradoxes and the nature of free will.",
-    },
-    {
-      name: "The Storyteller",
-      description:
-        "A pop culture expert who uses examples from fiction to make complex scientific ideas more accessible and engaging for the audience.",
+        "The learner responsible for the assembly and operation of the prototype. This role involves connecting hardware, configuring software settings, and observing how physical changes to the reactor (like adding more fuel) result in immediate changes on the digital dashboard.",
     },
   ],
 };

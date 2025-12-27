@@ -3,19 +3,56 @@
     <q-splitter v-model="splitterModel" style="height: 400px; max-height: calc(80vh - 200px)">
       <template #before>
         <div class="q-pa-md">
-          <div class="text-bold">Activity type</div>
-          <q-select
-            v-model="generatorData.activity"
-            :options="availableActivities"
-            option-label="label"
-            option-value="value"
-            emit-value
-            map-options
-            dense
-            outlined
-            rounded
-            class="q-mb-md"
-          />
+          <div class="row justify-evenly q-mt-md">
+            <q-select
+              label="Event Language"
+              v-model="generatorData.language"
+              :options="allLanguages"
+              option-label="label"
+              option-value="value"
+              emit-value
+              map-options
+              dense
+              outlined
+              rounded
+              style="min-width: 250px"
+            />
+            <q-select
+              label="Activity type"
+              v-model="generatorData.activity"
+              :options="availableActivities"
+              option-label="label"
+              option-value="value"
+              emit-value
+              map-options
+              dense
+              outlined
+              rounded
+              style="min-width: 250px"
+            />
+          </div>
+          <div class="row justify-evenly q-mt-md">
+            <q-input
+              v-model.number="generatorData.noOfHumanParticipants"
+              type="number"
+              label="Number of Human Participants"
+              dense
+              outlined
+              rounded
+              style="min-width: 250px"
+              :min="0"
+            />
+            <q-input
+              v-model.number="generatorData.noOfAIParticipants"
+              type="number"
+              label="Number of AI Participants"
+              dense
+              outlined
+              rounded
+              style="min-width: 250px"
+              :min="0"
+            />
+          </div>
           <div class="row justify-center q-mt-md">
             <q-btn
               class="q-my-md"
@@ -60,6 +97,7 @@ import type { GSK_REQUEST_EVENT_GENERATION } from 'src/services/library/types/da
 import type { GSK_DATA_FOR_EVENT_GENERATION } from 'src/services/library/types/participants';
 import { ref, watch } from 'vue';
 import { useSocketStore } from 'src/stores/socket-store';
+import { allLanguages } from 'src/services/library/constants/languages';
 
 const socketStore = useSocketStore();
 const splitterModel = ref(50);
@@ -67,6 +105,9 @@ const splitterModel = ref(50);
 const generatorData = ref<GSK_DATA_FOR_EVENT_GENERATION>({
   topicsToDiscuss: [],
   activity: 'learn',
+  noOfAIParticipants: 2,
+  noOfHumanParticipants: 1,
+  language: 'en-US',
 });
 
 const topicsTree = ref<InstanceType<typeof TreeElement> | null>(null);

@@ -59,8 +59,8 @@ const getListOfModels = async () => {
 getListOfModels();
 
 const selectedModel: GSK_AI_MODEL = {
-  modelId: "models/gemini-2.0-flash",
-  modelName: "Gemini 2.0 Flash",
+  modelId: "models/gemini-flash-lite-latest",
+  modelName: "Gemini Flash-Lite Latest",
 };
 
 export const getSelectedModel = () => {
