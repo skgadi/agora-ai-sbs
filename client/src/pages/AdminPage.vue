@@ -11,7 +11,7 @@
             @click="leftDrawerOpen = !leftDrawerOpen"
             class="q-mr-md"
           />
-          <q-toolbar-title>AgoraAI</q-toolbar-title>
+          <q-toolbar-title>AgoraAI-SBS</q-toolbar-title>
           <q-space />
           <connectivity-indicator />
           <server-internet-indicator class="q-ml-md" />

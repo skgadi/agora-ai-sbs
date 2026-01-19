@@ -56,6 +56,7 @@
           <div class="row justify-center q-mt-md">
             <q-btn
               class="q-my-md"
+              no-caps
               label="Generate Event"
               color="primary"
               rounded
